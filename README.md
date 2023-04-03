@@ -60,3 +60,13 @@ Use app user credentials to login.
 
 ⚠️ **Please note:** If you make any changes to the database schema or the application source, there is a higher chance that your local CRE8IVE app might break and it may not be able to upgrade to the future versions. If you want to make any such changes or experiment on your local machine, I suggest creating an independent folder and running a separate application instance in that folder.
 
+# Roadmap
+- Autosave
+- Lazyload cards
+- Copy cards from one canvas to another
+- Export
+- Support different media types like Video and Audio
+- Undo and Redo card changes
+- Card index
+- Handle error cases and display message
+- Create Spaces
