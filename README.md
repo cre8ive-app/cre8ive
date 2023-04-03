@@ -12,6 +12,7 @@ password: &uMRhy5^FqytdQ9Z%uzU
 ⚠️ **Please note:** The CRE8IVE application is still under development, and there is no stable version available yet. CRE8IVE uses [Pocketbase](https://github.com/pocketbase/pocketbase) for its backend, which is also under active development and does not have a stable version. Currently, backward compatibility is not guaranteed. CRE8IVE does not send your data to any server. All your data is stored in your local machine inside the `pb_data` folder. If you make any changes to the database schema or the application source, there is a higher chance that your local CRE8IVE app might break and it may not be able to upgrade to the future versions. If you want to make any such changes or experiment on your local machine, I suggest creating an independent folder and run a separate application instance in that folder.
 
 # Demo
+https://user-images.githubusercontent.com/129486620/229493694-3e10396b-f893-4828-889c-246e0b309008.mp4
 
 # How to run the application?
 1. Download latest version of the application from [release page](https://github.com/cre8ive-app/cre8ive/releases)
