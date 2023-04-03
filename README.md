@@ -2,6 +2,8 @@
 
 Offline, Opensource, Digital Canvas for everyone.
 
+![Demo](https://user-images.githubusercontent.com/129486620/229494648-a2b04bcb-291f-4cd1-93de-32e5c033609c.png)
+
 **Default user:**
 
 ```
