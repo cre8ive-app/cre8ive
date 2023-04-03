@@ -83,17 +83,14 @@
 				})
 			)
 
-			formData.append(
-				'settings',
-				JSON.stringify({ borderStyle: '' })
-			)
+			formData.append('settings', JSON.stringify({ borderStyle: '' }))
 
 			formData.append('content', '')
 			formData.append('media', file)
 
 			cardStore.addCard(id, formData)
 
-			left = left+250
+			left = left + 250
 		})
 	}
 
@@ -128,7 +125,7 @@
 					height: '200px'
 				},
 				content: '',
-				settings: { borderStyle: '' },
+				settings: { borderStyle: '' }
 			}
 
 			cardStore.addCard(id, card)
@@ -228,11 +225,15 @@
 	}
 
 	const fullScreenChanged = (e: Event) => {
-        fullScreen = isFullScreen() ? true : false
-    }
+		fullScreen = isFullScreen() ? true : false
+	}
 </script>
 
-<svelte:window on:keydown={handleKeyboardShortcuts} on:paste={handlePaste} on:fullscreenchange={fullScreenChanged} />
+<svelte:window
+	on:keydown={handleKeyboardShortcuts}
+	on:paste={handlePaste}
+	on:fullscreenchange={fullScreenChanged}
+/>
 
 <div class="main-wrapper overflow-hidden">
 	<div id="toolbar-container" />
@@ -245,7 +246,11 @@
 
 	<FullscreenMode />
 
-	<div id="canvas-wrapper" class="bg-gray-100 dark:bg-neutral-800" class:noPointerEvents={$generalStore.showProgress}>
+	<div
+		id="canvas-wrapper"
+		class="bg-gray-100 dark:bg-neutral-800"
+		class:noPointerEvents={$generalStore.showProgress}
+	>
 		<Moveable />
 		<Selecto />
 

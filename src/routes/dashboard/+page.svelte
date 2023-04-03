@@ -49,13 +49,13 @@
 	}
 </script>
 
-<div class="flex bg-white dark:bg-neutral-800 text-black dark:text-white font-sans">
+<div class="flex bg-white font-sans text-black dark:bg-neutral-800 dark:text-white">
 	<!-- TODO: on load, select default project -->
-	<div class="h-screen overflow-auto border-r dark:border-r-neutral-600 text-center">
+	<div class="h-screen overflow-auto border-r text-center dark:border-r-neutral-600">
 		{#each [...$canvasStore.space] as space (space.id)}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
-				class="cursor-pointer border-b dark:border-b-neutral-600 bg-white dark:bg-neutral-800 p-5 hover:bg-slate-200 dark:hover:bg-neutral-900"
+				class="cursor-pointer border-b bg-white p-5 hover:bg-slate-200 dark:border-b-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-900"
 				on:click={() => {
 					canvasStore.setActiveSpaceId(space.id)
 					canvasStore.loadCanvas(space.id)
@@ -71,16 +71,21 @@
 		{/each}
 
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class="p-5 bg-white dark:bg-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-900 cursor-pointer border-b dark:border-b-neutral-600"
-            on:click={() => { goto('/login') }} 
-            use:tippy={{ content: 'login', placement: 'right' }}
-        >
-            <img
-				class="mr-auto ml-auto mt-0 mb-0" src="/icons/login-box-line.svg" alt="icon"
+		<div
+			class="cursor-pointer border-b bg-white p-5 hover:bg-slate-200 dark:border-b-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-900"
+			on:click={() => {
+				goto('/login')
+			}}
+			use:tippy={{ content: 'login', placement: 'right' }}
+		>
+			<img
+				class="mb-0 ml-auto mr-auto mt-0"
+				src="/icons/login-box-line.svg"
+				alt="icon"
 				class:svg-white={$generalStore.generalSettings.darkMode}
 				class:svg-black={!$generalStore.generalSettings.darkMode}
 			/>
-        </div>
+		</div>
 
 		<!-- TODO: impletement create space feature -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -103,7 +108,11 @@
 
 		<div class="flex flex-wrap">
 			<div class="flex flex-col">
-				<input type="text" class="w-96 border dark:border-neutral-600 p-2 text-black dark:text-black" bind:value={canvasName} />
+				<input
+					type="text"
+					class="w-96 border p-2 text-black dark:border-neutral-600 dark:text-black"
+					bind:value={canvasName}
+				/>
 			</div>
 		</div>
 
@@ -135,13 +144,13 @@
 		<div class="flex basis-full flex-wrap p-5 px-2">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
-				class="mr-5 mb-5 h-52 w-52 cursor-pointer 
-				p-5 
-				border 
+				class="mb-5 mr-5 h-52 w-52 cursor-pointer
+				border
+				bg-slate-100
+				p-5
+				hover:bg-slate-200
 				dark:border-neutral-600
-				bg-slate-100 
-				dark:bg-neutral-900 
-				hover:bg-slate-200 
+				dark:bg-neutral-900
 				dark:hover:bg-neutral-800"
 				on:click={() => {
 					showModal = 'newCanvas'
@@ -149,7 +158,9 @@
 				}}
 			>
 				<img
-					class="w-12" src="/icons/sticky-note-line.svg" alt="icon"
+					class="w-12"
+					src="/icons/sticky-note-line.svg"
+					alt="icon"
 					class:svg-white={$generalStore.generalSettings.darkMode}
 					class:svg-black={!$generalStore.generalSettings.darkMode}
 				/>
@@ -160,15 +171,16 @@
 				{@const canvas = $canvasStore.canvas.get(canvasId)}
 
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div class="relative mr-5 mb-5 h-52 w-52 
-				border 
-				dark:border-neutral-600
+				<div
+					class="relative mb-5 mr-5 h-52 w-52
+				border
 				bg-white
+				dark:border-neutral-600
 				dark:bg-neutral-800
 				"
 				>
 					<div
-						class="h-4/5 cursor-pointer p-5 
+						class="h-4/5 cursor-pointer p-5
 						hover:bg-slate-200 dark:hover:bg-neutral-900"
 						on:click={() => {
 							goto(`/canvas?space-id=${canvas?.space_id}&canvas-id=${canvasId}`)
@@ -178,7 +190,8 @@
 					</div>
 
 					<div class="bottom-0 top-0 h-1/5 border-t dark:border-t-neutral-600">
-						<div class="bg-white dark:bg-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-900 w-10 absolute right-0 mr-10 cursor-pointer p-3"
+						<div
+							class="absolute right-0 mr-10 w-10 cursor-pointer bg-white p-3 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-900"
 							use:tippy={{ content: 'Rename Canvas', placement: 'bottom' }}
 							on:click={() => {
 								if (canvas) {
@@ -197,7 +210,8 @@
 							/>
 						</div>
 
-						<div class="bg-white dark:bg-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-900 w-10 absolute right-0 cursor-pointer p-3"
+						<div
+							class="absolute right-0 w-10 cursor-pointer bg-white p-3 hover:bg-slate-200 dark:bg-neutral-800 dark:hover:bg-neutral-900"
 							use:tippy={{ content: 'Delete Canvas', placement: 'bottom' }}
 							on:click={async () => {
 								if (

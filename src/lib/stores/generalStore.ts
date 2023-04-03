@@ -131,7 +131,8 @@ const generalStore = (): StoreActions => {
 		loadGeneralSettings: async () => {
 			try {
 				const general_settings_res = await pb
-					.collection(COLLECTIONS.GENERAL_SETTINGS).getFullList()
+					.collection(COLLECTIONS.GENERAL_SETTINGS)
+					.getFullList()
 
 				if (general_settings_res.length !== 1) return
 
@@ -139,7 +140,7 @@ const generalStore = (): StoreActions => {
 
 				updater(
 					produce((draft) => {
-						draft.generalSettings = { 
+						draft.generalSettings = {
 							id: general_settings.id,
 							darkMode: general_settings.dark_mode
 						}
@@ -158,7 +159,7 @@ const generalStore = (): StoreActions => {
 				storeInit.toggleShowProgress(true)
 
 				await pb.collection(COLLECTIONS.GENERAL_SETTINGS).update(generalSettings.id, {
-					dark_mode: generalSettings.darkMode,
+					dark_mode: generalSettings.darkMode
 				})
 
 				storeInit.toggleShowProgress(false)
@@ -168,7 +169,7 @@ const generalStore = (): StoreActions => {
 				console.error('failed to saveGeneralSettings', e)
 				console.info('error data', e.data)
 			}
-		},
+		}
 	}
 }
 

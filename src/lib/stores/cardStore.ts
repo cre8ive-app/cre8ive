@@ -99,7 +99,7 @@ const cardStore = (): StoreActions => {
 								style: card.style,
 								content: card.content,
 								media: card.media,
-								settings: card.settings,
+								settings: card.settings
 							})
 						}
 					})
@@ -134,7 +134,7 @@ const cardStore = (): StoreActions => {
 					style: res.style,
 					content: res.content,
 					media: res.media,
-					settings: res.settings,
+					settings: res.settings
 				}
 
 				updater(
@@ -172,7 +172,7 @@ const cardStore = (): StoreActions => {
 						...card,
 						...data,
 						style: { ...card.style, ...data.style },
-						settings: { ...card.settings, ...data.settings },
+						settings: { ...card.settings, ...data.settings }
 					})
 				})
 			),
@@ -247,7 +247,7 @@ const cardStore = (): StoreActions => {
 							left: card?.left,
 							style: card?.style,
 							content: card?.content,
-							settings: card?.settings,
+							settings: card?.settings
 						},
 						{ $autoCancel: false }
 					)
@@ -325,10 +325,7 @@ const cardStore = (): StoreActions => {
 								transform: `translate(${left}px, ${top}px)`
 							})
 						)
-						formData.append(
-							'settings',
-							JSON.stringify(card.settings)
-						)
+						formData.append('settings', JSON.stringify(card.settings))
 						formData.append('content', '')
 						formData.append('media', file)
 
@@ -364,9 +361,11 @@ const cardStore = (): StoreActions => {
 		},
 
 		clearCards: () => {
-			updater(produce(draft => {
-				draft.cards = new Map()
-			}))
+			updater(
+				produce((draft) => {
+					draft.cards = new Map()
+				})
+			)
 		}
 	}
 }

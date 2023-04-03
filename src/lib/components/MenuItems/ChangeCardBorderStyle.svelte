@@ -14,7 +14,7 @@
 	let colorPicker: any = null
 	let sketchStyle: boolean = false
 
-	let border: Writable<{ thickness: string, style: string, color: string }> = writable({
+	let border: Writable<{ thickness: string; style: string; color: string }> = writable({
 		thickness: '1px',
 		style: 'solid',
 		color: '#FFFFFF'
@@ -93,13 +93,13 @@
 				// const thickness = border[0].replace(/\px$/, "")
 				const thickness = border[0]
 				const style = border[1]
-				const color = border[2].replace(/\;$/, "")
+				const color = border[2].replace(/\;$/, '')
 
 				borderThickness.add(thickness)
 				borderStyle.add(style)
 				borderColor.add(color)
 			}
-			
+
 			sketch.add(card?.settings?.borderStyle === 'sketch')
 		}
 
@@ -176,27 +176,27 @@
 
 	onMount(() => {
 		// @ts-ignore:next-line
-		colorPicker = new iro.ColorPicker("#border-color-container", {
+		colorPicker = new iro.ColorPicker('#border-color-container', {
 			layout: [
-				{ 
-					component: iro.ui.Box,
+				{
+					component: iro.ui.Box
 				},
-				{ 
+				{
 					component: iro.ui.Slider,
 					options: {
 						sliderType: 'hue'
 					}
 				},
-				{ 
+				{
 					component: iro.ui.Slider,
 					options: {
 						sliderType: 'alpha'
 					}
-				},
+				}
 			]
 		})
 
-		colorPicker.on('color:change', function(color: any) {
+		colorPicker.on('color:change', function (color: any) {
 			border.set({ ...$border, color: color.hex8String })
 		})
 	})
@@ -223,24 +223,27 @@
 		<h2 class="mb-6 text-lg font-medium">Change card border style</h2>
 
 		<div class="flex flex-wrap">
-			<div id="border-color-container"></div>
+			<div id="border-color-container" />
 
 			<div class="flex flex-col">
 				<div
-					class="ml-5 mb-5 h-20 w-20 border"
+					class="mb-5 ml-5 h-20 w-20 border"
 					class:card-border-sketch={sketchStyle}
 					style={`border: ${
-						noBorder
-							? 'none'
-							: `${$border.thickness} ${$border.style} ${$border.color}`
+						noBorder ? 'none' : `${$border.thickness} ${$border.style} ${$border.color}`
 					};`}
 				/>
 
-				<div class="ml-5 mb-5 w-20">
-					<input type="text" class="border bg-white text-black w-full" bind:value={$border.color} on:change={onHexaInput} />
+				<div class="mb-5 ml-5 w-20">
+					<input
+						type="text"
+						class="w-full border bg-white text-black"
+						bind:value={$border.color}
+						on:change={onHexaInput}
+					/>
 				</div>
 
-				<div class="ml-5 mb-5">
+				<div class="mb-5 ml-5">
 					<label for="">
 						Style
 						<select class="border text-black" bind:value={$border.style}>
@@ -251,7 +254,7 @@
 					</label>
 				</div>
 
-				<div class="ml-5 mb-5">
+				<div class="mb-5 ml-5">
 					<label for="">
 						Thickness
 						<select class="border text-black" bind:value={$border.thickness}>
@@ -262,10 +265,14 @@
 					</label>
 				</div>
 
-				<div class="ml-5 mb-5">
+				<div class="mb-5 ml-5">
 					<label for="changeBorder-sketch">
 						Sketch
-						<input id="changeBorder-sketch" type="checkbox" bind:checked={sketchStyle} />
+						<input
+							id="changeBorder-sketch"
+							type="checkbox"
+							bind:checked={sketchStyle}
+						/>
 					</label>
 				</div>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css'
 	import { goto } from '$app/navigation'
-	import { browser } from "$app/environment"
+	import { browser } from '$app/environment'
 	import canvasStore from '$lib/stores/canvasStore'
 	import generalStore from '$lib/stores/generalStore'
 	import { page } from '$app/stores'
@@ -14,21 +14,19 @@
 	onMount(() => {
 		// TODO: get these values from ENV vars
 		console.log(`CRE8IVE v0.0.1, POCKETBASE v0.14.1`)
-		
+
 		generalStore.loadGeneralSettings()
 	})
 
 	const fullScreenChanged = (e: Event) => {
-        fullScreen = isFullScreen() ? true : false
-    }
+		fullScreen = isFullScreen() ? true : false
+	}
 </script>
 
 <svelte:window on:fullscreenchange={fullScreenChanged} />
 
-<div class="bg-white dark:bg-neutral-800 text-black dark:text-white">
-	<div class="p-4 font-mono"
-		class:hidden={fullScreen}
-	>
+<div class="bg-white text-black dark:bg-neutral-800 dark:text-white">
+	<div class="p-4 font-mono" class:hidden={fullScreen}>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			class="inline cursor-pointer text-3xl font-bold"
@@ -47,7 +45,7 @@
 
 		{#if browser && $page.url.searchParams.get('canvas-id')}
 			<div class="text-lg">
-				{$canvasStore.canvasSettings.name} 
+				{$canvasStore.canvasSettings.name}
 
 				{#if $canvasStore.isUnSaved}
 					<span>- <span class="text-red-600">unsaved</span></span>
@@ -122,7 +120,7 @@
 	}
 
 	/* TODO: Since I have replaced the color picker with iro i think this can be removed */
-	
+
 	/* fix svelte-color-picker ui */
 	:global(.hex-text-block) {
 		width: 70px !important;

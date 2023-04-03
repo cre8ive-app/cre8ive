@@ -53,7 +53,10 @@ export const findMouseButton = (buttonIndex: Number) => {
 	}
 }
 
-export const mouseCoords = (event: PointerEvent | MouseEvent, scale: number): { left: number, top: number } | null => {
+export const mouseCoords = (
+	event: PointerEvent | MouseEvent,
+	scale: number
+): { left: number; top: number } | null => {
 	const canvas = document.getElementById('canvas-container')
 
 	if (!canvas) return null

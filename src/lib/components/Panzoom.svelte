@@ -51,11 +51,7 @@
 				prevSelectedCards = null
 			}
 
-			canvasStore.updateCanvasTransform(
-				e.detail.x,
-				e.detail.y,
-				e.detail.scale
-			)
+			canvasStore.updateCanvasTransform(e.detail.x, e.detail.y, e.detail.scale)
 
 			canvasStore.setIsUnSaved('canvasPanned')
 		}
@@ -80,11 +76,7 @@
 				prevSelectedCards = null
 			}
 
-			canvasStore.updateCanvasTransform(
-				e.detail.x,
-				e.detail.y,
-				e.detail.scale
-			)
+			canvasStore.updateCanvasTransform(e.detail.x, e.detail.y, e.detail.scale)
 
 			canvasStore.setIsUnSaved('canvasZoomed')
 		}, 500)
@@ -98,10 +90,10 @@
 			noBind: true,
 			cursor: 'default',
 			minScale: 0,
-			maxScale: 20,
+			maxScale: 20
 		})
 
-        generalStore.setPanzoom(panzoomInstance)
+		generalStore.setPanzoom(panzoomInstance)
 
 		if (panzoomInstance && panzoomElem) {
 			document.querySelector('body')?.addEventListener('contextmenu', onContextMenu)
@@ -110,13 +102,13 @@
 			document.addEventListener('pointermove', onPointerMove)
 			document.addEventListener('pointerup', onPointerUp)
 			panzoomElem.addEventListener('panzoomstart', onPanzoomStart)
-            panzoomElem.addEventListener('panzoomend', onPanEnd)
-            panzoomElem.addEventListener('panzoomzoom', onZoomEnd)
+			panzoomElem.addEventListener('panzoomend', onPanEnd)
+			panzoomElem.addEventListener('panzoomzoom', onZoomEnd)
 		}
 	}
 
 	onMount(async () => {
-        spaceId = $page.url.searchParams.get('space-id')
+		spaceId = $page.url.searchParams.get('space-id')
 		canvasId = $page.url.searchParams.get('canvas-id')
 
 		if (!spaceId || !canvasId) {
@@ -129,7 +121,9 @@
 			panzoomInstance.zoom(canvasSettings.scale, { animate: true })
 			setTimeout(() => {
 				if (panzoomInstance) {
-					panzoomInstance.pan(canvasSettings.pan.left, canvasSettings.pan.top, { animate: true })
+					panzoomInstance.pan(canvasSettings.pan.left, canvasSettings.pan.top, {
+						animate: true
+					})
 				}
 			})
 		}
@@ -150,11 +144,11 @@
 </script>
 
 <div id="canvas-container" class="bg-gray-100 dark:bg-neutral-800" use:initPanZoom>
-    <slot />
+	<slot />
 </div>
 
 <style>
-    #canvas-container {
+	#canvas-container {
 		width: 100vw;
 		height: 100vh;
 	}

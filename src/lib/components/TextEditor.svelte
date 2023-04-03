@@ -42,7 +42,8 @@
 		elementpath: false,
 		branding: false,
 		plugins: ['lists', 'image', 'table'],
-		font_size_formats: '10pt 12pt 14pt 16pt 18pt 20pt 25pt 30pt 35pt 40pt 45pt 50pt 100pt 150pt 300pt 500pt',
+		font_size_formats:
+			'10pt 12pt 14pt 16pt 18pt 20pt 25pt 30pt 35pt 40pt 45pt 50pt 100pt 150pt 300pt 500pt',
 		fixed_toolbar_container: '#toolbar-container',
 		toolbar:
 			'blocks fontsize | ' +

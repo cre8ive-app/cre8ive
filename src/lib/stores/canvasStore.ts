@@ -27,7 +27,22 @@ type CanvasSettings = {
 	pan: { top: number; left: number }
 }
 
-type SetBy = 'cardDragged' | 'cardGroupDragged' | 'cardResized' | 'cardGroupResized' | 'textUpdated' | 'cardBorderChanged' | 'cardBGColorChanged' | 'cardGrouped' | 'cardUnGrouped' | 'cardDeleted' | 'cardAdded' | 'cardDuplicated' | 'canvasPanned' | 'canvasZoomed' | 'darkModeChanged'
+type SetBy =
+	| 'cardDragged'
+	| 'cardGroupDragged'
+	| 'cardResized'
+	| 'cardGroupResized'
+	| 'textUpdated'
+	| 'cardBorderChanged'
+	| 'cardBGColorChanged'
+	| 'cardGrouped'
+	| 'cardUnGrouped'
+	| 'cardDeleted'
+	| 'cardAdded'
+	| 'cardDuplicated'
+	| 'canvasPanned'
+	| 'canvasZoomed'
+	| 'darkModeChanged'
 
 interface StoreData {
 	space: Space[]
@@ -73,7 +88,7 @@ const canvasStore = (): StoreActions => {
 		},
 		groupedCardIds: [],
 		isSaving: false,
-		isUnSaved: null,
+		isUnSaved: null
 	}
 
 	const store = writable<StoreData>(produce(storeData, (draft) => draft))
@@ -250,9 +265,13 @@ const canvasStore = (): StoreActions => {
 			const groupedCardIds = get(store).groupedCardIds
 
 			try {
-				await pb.collection(COLLECTIONS.CANVAS).update(canvasSettings.id as string, {
-					"grouped_card_ids": groupedCardIds
-				}, { '$autoCancel': false })
+				await pb.collection(COLLECTIONS.CANVAS).update(
+					canvasSettings.id as string,
+					{
+						grouped_card_ids: groupedCardIds
+					},
+					{ $autoCancel: false }
+				)
 			} catch (e: any) {
 				console.error('failed to saveGroupedCards', e)
 				console.info('error data', e.data)
@@ -388,9 +407,11 @@ const canvasStore = (): StoreActions => {
 		},
 
 		setIsUnSaved: (setBy) => {
-			updater(produce((draft) => {
-				draft.isUnSaved = setBy
-			}))
+			updater(
+				produce((draft) => {
+					draft.isUnSaved = setBy
+				})
+			)
 		},
 
 		save: async () => {
@@ -399,19 +420,29 @@ const canvasStore = (): StoreActions => {
 			}
 
 			try {
-				updater(produce((draft) => { draft.isSaving = true }))
+				updater(
+					produce((draft) => {
+						draft.isSaving = true
+					})
+				)
 
 				// TODO: change isUnSaved to list of unsaved events and onSave save only that
 				await cardStore.saveCards()
 				await storeInit.saveCanvasSettings()
 				await generalStore.saveGeneralSettings()
 
-				updater(produce((draft) => {
-					draft.isUnSaved = null
-					draft.isSaving = false
-				}))
+				updater(
+					produce((draft) => {
+						draft.isUnSaved = null
+						draft.isSaving = false
+					})
+				)
 			} catch (e: any) {
-				updater(produce((draft) => { draft.isSaving = false }))
+				updater(
+					produce((draft) => {
+						draft.isSaving = false
+					})
+				)
 
 				console.error('save error', e)
 				console.info('error data', e.data)

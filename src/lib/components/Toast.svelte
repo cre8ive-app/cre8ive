@@ -3,12 +3,7 @@
 	export let content: string
 </script>
 
-/**
- * TODO:
-	- set fixed width.
-	- close icon.
-	- auto disappear
-*/
+/** * TODO: set fixed width, close icon, auto disappear */
 <div
 	class="absolute left-1/2 right-0 w-max rounded-md border-2 px-10 py-4 text-white drop-shadow-lg"
 	class:bg-green-500={style === 'success'}

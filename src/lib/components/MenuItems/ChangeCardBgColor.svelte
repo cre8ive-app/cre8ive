@@ -81,29 +81,29 @@
 		}
 	}
 
-	onMount(() => { 
+	onMount(() => {
 		// @ts-ignore:next-line
-		colorPicker = new iro.ColorPicker("#bg-color-container", {
+		colorPicker = new iro.ColorPicker('#bg-color-container', {
 			layout: [
-				{ 
-					component: iro.ui.Box,
+				{
+					component: iro.ui.Box
 				},
-				{ 
+				{
 					component: iro.ui.Slider,
 					options: {
 						sliderType: 'hue'
 					}
 				},
-				{ 
+				{
 					component: iro.ui.Slider,
 					options: {
 						sliderType: 'alpha'
 					}
-				},
+				}
 			]
 		})
 
-		colorPicker.on('color:change', function(color: any) {
+		colorPicker.on('color:change', function (color: any) {
 			colorStore.set(color.hex8String)
 		})
 	})
@@ -132,16 +132,21 @@
 		<h2 class="mb-6 text-lg font-medium">Change card background color</h2>
 
 		<div class="flex flex-wrap">
-			<div id="bg-color-container"></div>
+			<div id="bg-color-container" />
 
 			<div class="flex flex-col">
 				<div
-					class="ml-5 mb-5 h-20 w-20"
-					style={`background-color: ${ noColor ? 'none' : color };`}
+					class="mb-5 ml-5 h-20 w-20"
+					style={`background-color: ${noColor ? 'none' : color};`}
 				/>
 
-				<div class="ml-5 mb-5 w-20">
-					<input type="text" class="border bg-white text-black w-full" bind:value={color} on:change={onHexaInput} />
+				<div class="mb-5 ml-5 w-20">
+					<input
+						type="text"
+						class="w-full border bg-white text-black"
+						bind:value={color}
+						on:change={onHexaInput}
+					/>
 				</div>
 
 				<!-- TODO: checkbox style -->
