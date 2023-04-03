@@ -69,7 +69,10 @@
 		}
 	}
 
-	const endEvent = (e: CustomEvent, setBy: 'cardDragged'| 'cardGroupDragged' | 'cardResized' | 'cardGroupResized') => {
+	const endEvent = (
+		e: CustomEvent,
+		setBy: 'cardDragged' | 'cardGroupDragged' | 'cardResized' | 'cardGroupResized'
+	) => {
 		for (const cardId of cardsToUpdate.keys()) {
 			cardStore.updateCard(cardId, { ...cardsToUpdate.get(cardId) })
 		}

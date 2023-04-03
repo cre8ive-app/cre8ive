@@ -25,33 +25,43 @@
 	}
 </script>
 
-<div class="flex h-screen bg-white dark:bg-neutral-800 text-black dark:text-white font-sans">
-		<div class="p-5 mx-auto my-0 mt-40">
-			<h2 class="mb-6 text-lg font-medium">Login</h2>
+<div class="flex h-screen bg-white font-sans text-black dark:bg-neutral-800 dark:text-white">
+	<div class="mx-auto my-0 mt-40 p-5">
+		<h2 class="mb-6 text-lg font-medium">Login</h2>
 
-			<div class="flex flex-col">
-				<div class="mb-5">
-					<label for="">
-						Email 
-						<input type="text" class="w-96 text-black border p-2 ml-10" bind:value={emailId} />
-					</label>
-				</div>
-
-				<div class="mb-5">
-					<label for="">
-						Password 
-						<input type="password" class="w-96 text-black border p-2 ml-3" bind:value={password} />
-					</label>
-				</div>
+		<div class="flex flex-col">
+			<div class="mb-5">
+				<label for="">
+					Email
+					<input
+						type="text"
+						class="ml-10 w-96 border p-2 text-black"
+						bind:value={emailId}
+					/>
+				</label>
 			</div>
 
-			<div class="mt-5 text-right">
-				<button
-					class="bg-black px-4 py-2 text-white hover:bg-neutral-700"
-					on:click={() => { login() }}
-				>
-					Login
-				</button>
+			<div class="mb-5">
+				<label for="">
+					Password
+					<input
+						type="password"
+						class="ml-3 w-96 border p-2 text-black"
+						bind:value={password}
+					/>
+				</label>
 			</div>
 		</div>
+
+		<div class="mt-5 text-right">
+			<button
+				class="bg-black px-4 py-2 text-white hover:bg-neutral-700"
+				on:click={() => {
+					login()
+				}}
+			>
+				Login
+			</button>
+		</div>
+	</div>
 </div>

@@ -68,19 +68,29 @@
 	<IconContainer
 		tooltipContent="Duplicate card (ctrl+d)"
 		tooltipPosition="right"
-		on:click={() => { duplicateCard() }}
+		on:click={() => {
+			duplicateCard()
+		}}
 	>
 		<img class="svg-white" src="/icons/file-copy-line.svg" alt="icon" />
 	</IconContainer>
 
-	<IconContainer tooltipContent="Group cards  (ctrl+g)" tooltipPosition="right"
-		on:click={() => { groupCards() }}
+	<IconContainer
+		tooltipContent="Group cards  (ctrl+g)"
+		tooltipPosition="right"
+		on:click={() => {
+			groupCards()
+		}}
 	>
 		<img class="svg-white" src="/icons/picture-in-picture-exit-line.svg" alt="icon" />
 	</IconContainer>
 
-	<IconContainer tooltipContent="Ungroup cards (ctrl+shift+g)" tooltipPosition="right"
-		on:click={() => { unGroupCards() }}
+	<IconContainer
+		tooltipContent="Ungroup cards (ctrl+shift+g)"
+		tooltipPosition="right"
+		on:click={() => {
+			unGroupCards()
+		}}
 	>
 		<img class="svg-white" src="/icons/picture-in-picture-2-line.svg" alt="icon" />
 	</IconContainer>
