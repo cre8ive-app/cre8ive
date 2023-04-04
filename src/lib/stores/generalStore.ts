@@ -11,13 +11,17 @@ interface IsMenuActive {
 	addNewCard: boolean
 	changeCardBgColor: boolean
 	changeCardBorder: boolean
+	changeFontSize: boolean
+	changeFontColor: boolean
 }
 
 export enum MenuItem {
 	select = 'select',
 	addNewCard = 'addNewCard',
 	changeCardBgColor = 'changeCardBgColor',
-	changeCardBorder = 'changeCardBorder'
+	changeCardBorder = 'changeCardBorder',
+	changeFontSize = 'changeFontSize',
+	changeFontColor = 'changeFontColor'
 }
 
 interface GeneralSettings {
@@ -53,7 +57,9 @@ const generalStore = (): StoreActions => {
 			select: true,
 			addNewCard: false,
 			changeCardBgColor: false,
-			changeCardBorder: false
+			changeCardBorder: false,
+			changeFontSize: false,
+			changeFontColor: false
 		},
 		preSelectedCards: [],
 		showProgress: false,
