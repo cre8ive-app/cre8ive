@@ -15,6 +15,7 @@ export type CardStyle = {
 	width?: string
 	height?: string
 	border?: string
+	fontSize?: { value: number; unit: string }
 }
 
 export type CardSettings = {

@@ -12,9 +12,6 @@
 	let fullScreen: boolean = false // TODO: set and get this from store?
 
 	onMount(() => {
-		// TODO: get these values from ENV vars
-		console.log(`CRE8IVE v0.0.1, POCKETBASE v0.14.1`)
-
 		generalStore.loadGeneralSettings()
 	})
 

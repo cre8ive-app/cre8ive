@@ -49,6 +49,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Dashboard</title>
+</svelte:head>
+
 <div class="flex bg-white font-sans text-black dark:bg-neutral-800 dark:text-white">
 	<!-- TODO: on load, select default project -->
 	<div class="h-screen overflow-auto border-r text-center dark:border-r-neutral-600">

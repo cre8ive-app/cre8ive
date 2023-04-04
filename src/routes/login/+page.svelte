@@ -25,6 +25,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Login</title>
+</svelte:head>
+
 <div class="flex h-screen bg-white font-sans text-black dark:bg-neutral-800 dark:text-white">
 	<div class="mx-auto my-0 mt-40 p-5">
 		<h2 class="mb-6 text-lg font-medium">Login</h2>

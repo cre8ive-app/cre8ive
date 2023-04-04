@@ -38,8 +38,9 @@
 
 	const cardTransform = (card: any) => {
 		return `
-			background-color: ${card.style.backgroundColor};
-			color: ${card.style.color};
+			background-color: ${card.style.backgroundColor ? card.style.backgroundColor : '#FFFFFF'};
+			color: ${card.style.color ? card.style.color : '#000000'};
+			font-size: ${card.style.fontSize ? card.style.fontSize.value + card.style.fontSize.unit : '4em'};
 			border: ${card.style.border ? card.style.border : '1px solid #000000'};
 			padding: ${card.type === 'text' ? '30px' : '0px'};
 			width: ${typeof card.width === 'number' ? card.width + 'px' : card.width};

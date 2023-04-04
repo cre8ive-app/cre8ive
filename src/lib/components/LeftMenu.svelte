@@ -4,6 +4,8 @@
 	import { MenuItem } from '$lib/stores/generalStore'
 	import ChangeCardBgColor from './MenuItems/ChangeCardBgColor.svelte'
 	import ChangeCardBorderStyle from './MenuItems/ChangeCardBorderStyle.svelte'
+	import ChangeFontColor from './MenuItems/ChangeFontColor.svelte'
+	import ChangeFontSize from './MenuItems/ChangeFontSize.svelte'
 	import cardStore from '$lib/stores/cardStore'
 	import canvasStore from '$lib/stores/canvasStore'
 
@@ -95,6 +97,8 @@
 		<img class="svg-white" src="/icons/picture-in-picture-2-line.svg" alt="icon" />
 	</IconContainer>
 
+	<ChangeFontSize />
+	<ChangeFontColor />
 	<ChangeCardBgColor />
 	<ChangeCardBorderStyle />
 

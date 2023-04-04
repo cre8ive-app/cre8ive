@@ -43,6 +43,8 @@ type SetBy =
 	| 'canvasPanned'
 	| 'canvasZoomed'
 	| 'darkModeChanged'
+	| 'cardFontSizeChanged'
+	| 'cardFontColorChanged'
 
 interface StoreData {
 	space: Space[]

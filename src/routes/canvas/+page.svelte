@@ -22,6 +22,7 @@
 	import generalStore from '$lib/stores/generalStore'
 	import canvasStore from '$lib/stores/canvasStore'
 
+	$: canvasTitle = $canvasStore.canvasSettings.name
 	let spaceId: string | null
 	let canvasId: string | null
 	let fullScreen: boolean = false // TODO: set and get this from store
@@ -228,6 +229,10 @@
 		fullScreen = isFullScreen() ? true : false
 	}
 </script>
+
+<svelte:head>
+	<title>{canvasTitle}</title>
+</svelte:head>
 
 <svelte:window
 	on:keydown={handleKeyboardShortcuts}
