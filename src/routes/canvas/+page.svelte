@@ -283,10 +283,11 @@
 		position: absolute;
 		width: 50%;
 		height: auto;
-		top: 5%;
+		top: 8%;
 		left: 0;
 		right: 0;
 		margin: 0 auto;
+		z-index: 50;
 	}
 
 	.noPointerEvents {
